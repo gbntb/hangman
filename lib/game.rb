@@ -34,6 +34,7 @@ class Game
     json = JSON.dump({ word: word, good_letters: good_letters, bad_letters: bad_letters, errors_left: errors_left })
     save_file = File.open('./savefile', 'w')
     save_file.puts json
+    save_file.close
   end
 
   def resume
