@@ -15,6 +15,16 @@ class Game
     self.errors_left = errors_left
   end
 
+  def main_loop
+    until game_over?
+      display
+      print 'Enter a letter or a command: '
+      handle_input(gets.chomp)
+    end
+
+    game_over
+  end
+
   # Main display method.
   # Display the word, substituting missing letters with '_', also display wrong letters.
   def display
