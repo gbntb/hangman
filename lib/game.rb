@@ -102,9 +102,9 @@ class Game
 
   def game_over
     if word_found?
-      puts 'You found the word! You win!'
+      puts "You found the word '#{word}'! You win!"
     else
-      puts 'You lose!'
+      puts "You lose! The word was '#{word}."
     end
 
     exit
