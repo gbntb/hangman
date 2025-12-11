@@ -33,4 +33,17 @@ class Game
   def json
     JSON.dump({ word: word, good_letters: good_letters, bad_letters: bad_letters, errors_left: errors_left })
   end
+
+  def save
+    save_file = File.open('./savefile', 'w')
+    save_file.puts json
+  end
+
+  def resume
+    data = JSON.load_file('./savefile')
+    self.word = data['word']
+    self.good_letters = data['good_letters']
+    self.bad_letters = data['bad_letters']
+    self.errors_left = data['errors_left']
+  end
 end
