@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'colorize'
+
 # This game is fairly simple. The whole thing goes in this single Game class,
 # except the main game menu which goes in Launcher.
 class Game
@@ -23,6 +25,7 @@ class Game
       end
     end
 
-    puts "[#{partial_word_array.join(' ')}] | [#{bad_letters.join(', ')}] | [#{errors_left} errors left]"
+    puts "[#{partial_word_array.join(' ').colorize(:green)}] | [#{bad_letters.join(', ').colorize(:red)}]"
+    puts "#{errors_left} mistakes left.".colorize(:red)
   end
 end
