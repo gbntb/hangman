@@ -11,4 +11,18 @@ class Game
     self.bad_letters = bad_letters
     self.errors_left = errors_left
   end
+
+  # Main display method.
+  # Display the word, substituting missing letters with '_', also display wrong letters.
+  def display
+    partial_word_array = word.chars.collect do |letter|
+      if good_letters.include?(letter)
+        letter
+      else
+        '_'
+      end
+    end
+
+    puts "[#{partial_word_array.join(' ')}] | [#{bad_letters.join(', ')}] | [#{errors_left} errors left]"
+  end
 end
