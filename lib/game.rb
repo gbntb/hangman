@@ -35,6 +35,7 @@ class Game
     File.open('./savefile', 'w') do |savefile|
       savefile.puts json
     end
+    puts 'Saved to savefile.'
   end
 
   def resume
@@ -43,6 +44,7 @@ class Game
     self.good_letters = data['good_letters']
     self.bad_letters = data['bad_letters']
     self.errors_left = data['errors_left']
+    puts 'Resumed from savefile.'
   end
 
   def good_letter_input(letter)
