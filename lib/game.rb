@@ -79,7 +79,11 @@ class Game
   end
 
   def word_found?
-    good_letters.length == word.uniq.length
+    good_letters.length == word.chars.uniq.length
+  end
+
+  def game_over?
+    word_found? || errors_left <= 0
   end
 
   def game_over
