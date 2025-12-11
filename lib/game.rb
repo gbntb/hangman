@@ -44,4 +44,35 @@ class Game
     self.bad_letters = data['bad_letters']
     self.errors_left = data['errors_left']
   end
+
+  def good_letter_input(letter)
+    good_letters << letter unless good_letters.include?(letter)
+  end
+
+  def bad_letter_input(letter)
+    self.errors_left -= 1 unless bad_letters.include?(letter)
+    bad_letters << letter unless bad_letters.include?(letter)
+  end
+
+  def command_input(command)
+    case command
+    when 'save'
+      save
+    when 'resume'
+      resume
+    when 'exit'
+      exit
+    end
+  end
+
+  def handle_input(input)
+    valid_commands = %w[save resume exit]
+    if valid_commands.include?(input)
+      command_input(input)
+    elsif word.include?(input)
+      good_letter_input(input)
+    else
+      bad_letter_input(input)
+    end
+  end
 end
