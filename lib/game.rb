@@ -10,7 +10,7 @@ class Game
     self.word = random_word
     self.good_letters = []
     self.bad_letters = []
-    self.errors_left = word.length * 2
+    self.errors_left = 8
   end
 
   def main_loop
