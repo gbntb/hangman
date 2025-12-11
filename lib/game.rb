@@ -77,4 +77,18 @@ class Game
       bad_letter_input(input)
     end
   end
+
+  def word_found?
+    good_letters.length == word.uniq.length
+  end
+
+  def game_over
+    if word_found?
+      puts 'You found the word! You win!'
+    else
+      puts 'You lose!'
+    end
+
+    exit
+  end
 end
