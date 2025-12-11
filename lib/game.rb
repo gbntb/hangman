@@ -17,7 +17,11 @@ class Game
     until game_over?
       display
       print 'Enter a letter or a command: '
-      handle_input(gets.chomp)
+      begin
+        handle_input(gets.chomp)
+      rescue StandardError, Interrupt
+        exit
+      end
     end
 
     game_over
