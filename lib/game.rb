@@ -8,11 +8,11 @@ require 'json'
 class Game
   attr_accessor :word, :good_letters, :bad_letters, :errors_left
 
-  def initialize(word, good_letters, bad_letters, errors_left)
-    self.word = word
-    self.good_letters = good_letters
-    self.bad_letters = bad_letters
-    self.errors_left = errors_left
+  def initialize
+    self.word = random_word
+    self.good_letters = []
+    self.bad_letters = []
+    self.errors_left = word.length * 2
   end
 
   def main_loop
@@ -23,6 +23,10 @@ class Game
     end
 
     game_over
+  end
+
+  def random_word
+    File.readlines('./assets/dict.txt').collect(&:chomp).select { |word| word.length.between?(5, 12) }.sample
   end
 
   # Main display method.
