@@ -30,11 +30,8 @@ class Game
     puts "#{errors_left} mistakes left.".colorize(:red)
   end
 
-  def json
-    JSON.dump({ word: word, good_letters: good_letters, bad_letters: bad_letters, errors_left: errors_left })
-  end
-
   def save
+    json = JSON.dump({ word: word, good_letters: good_letters, bad_letters: bad_letters, errors_left: errors_left })
     save_file = File.open('./savefile', 'w')
     save_file.puts json
   end
