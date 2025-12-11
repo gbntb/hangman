@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'colorize'
-require 'yaml'
+require 'json'
 
 # This game is fairly simple. The whole thing goes in this single Game class,
 # except the main game menu which goes in Launcher.
@@ -30,7 +30,7 @@ class Game
     puts "#{errors_left} mistakes left.".colorize(:red)
   end
 
-  def to_yaml
-    YAML.dump({ word: word, good_letters: good_letters, bad_letters: bad_letters, errors_left: errors_left })
+  def json
+    JSON.dump({ word: word, good_letters: good_letters, bad_letters: bad_letters, errors_left: errors_left })
   end
 end
