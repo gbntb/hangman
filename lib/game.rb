@@ -91,10 +91,10 @@ class Game
     valid_commands = %w[save resume exit]
     if valid_commands.include?(input)
       command_input(input)
-    elsif word.include?(input)
-      good_letter_input(input)
+    elsif word.include?(input[0])
+      good_letter_input(input[0])
     else
-      bad_letter_input(input)
+      bad_letter_input(input[0])
     end
   end
 
