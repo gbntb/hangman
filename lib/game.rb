@@ -6,8 +6,6 @@ require 'json'
 # This game is fairly simple. The whole thing goes in this single Game class,
 # except the main game menu which goes in Launcher.
 class Game
-  attr_accessor :word, :good_letters, :bad_letters, :errors_left
-
   def initialize
     self.word = random_word
     self.good_letters = []
@@ -24,6 +22,10 @@ class Game
 
     game_over
   end
+
+  private
+
+  attr_accessor :word, :good_letters, :bad_letters, :errors_left
 
   def random_word
     File.readlines('./assets/dict.txt').collect(&:chomp).select { |word| word.length.between?(5, 12) }.sample
