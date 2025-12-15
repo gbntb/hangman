@@ -3,8 +3,7 @@
 require 'colorize'
 require 'json'
 
-# This game is fairly simple. The whole thing goes in this single Game class,
-# except the main game menu which goes in Launcher.
+# This game is fairly simple. The whole thing goes in this single Game class.
 class Game
   def initialize
     self.word = random_word
