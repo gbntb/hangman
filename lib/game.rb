@@ -102,7 +102,7 @@ class Game
   end
 
   def game_over?
-    word_found? || errors_left <= 0
+    word_found? || errors_left.zero?
   end
 
   def game_over
