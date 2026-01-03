@@ -109,7 +109,7 @@ class Game
     if word_found?
       puts "You found the word '#{word}'! You win!"
     else
-      puts "You lose! The word was '#{word}."
+      puts "You lose! The word was '#{word}'."
     end
 
     exit
